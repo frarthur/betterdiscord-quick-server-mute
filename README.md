@@ -7,6 +7,8 @@ A [BetterDiscord](https://betterdiscord.app/) plugin that adds a one-click mute 
 
 Tired of right-clicking server after server and going through the menu just to mute notifications? This plugin puts a small bell button directly on each server icon and on each folder.
 
+![QuickServerMute demo](images/Discord_gif_mute-unmute.gif)
+
 ## Features
 
 - **One-click mute/unmute** — a small bell button on every server icon.
@@ -16,6 +18,14 @@ Tired of right-clicking server after server and going through the menu just to m
 - **Live updates** — if you change notification settings anywhere else in Discord, the indicator updates automatically.
 - **Toast confirmation** — a small notification confirms each mute/unmute.
 - **Keyboard accessible** — the button can be focused with `Tab` and triggered with `Enter` / `Space`.
+
+## Visual states
+
+| Servers | Folder |
+| --- | --- |
+| ![Muted server examples](images/mute_statue_exemple_server.png) | ![Folder mute state examples](images/mute_statue_exemple_groupe.png) |
+
+A red bell means muted, an orange bell means only part of the folder is muted, and the greyed-out icons are the muted servers.
 
 ## How it works
 

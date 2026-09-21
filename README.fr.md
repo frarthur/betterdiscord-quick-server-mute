@@ -7,6 +7,8 @@ Un plugin [BetterDiscord](https://betterdiscord.app/) qui ajoute un bouton de mu
 
 Marre de faire clic droit serveur après serveur et de passer par le menu juste pour couper les notifications ? Ce plugin place un petit bouton cloche directement sur chaque icône de serveur et sur chaque dossier.
 
+![Démo de QuickServerMute](images/Discord_gif_mute-unmute.gif)
+
 ## Fonctionnalités
 
 - **Mute/démute en un clic** — un petit bouton cloche sur chaque icône de serveur.
@@ -16,6 +18,14 @@ Marre de faire clic droit serveur après serveur et de passer par le menu juste 
 - **Mise à jour en direct** — si tu modifies les notifications ailleurs dans Discord, l'indicateur se met à jour automatiquement.
 - **Confirmation** — une petite notification confirme chaque mute/démute.
 - **Accessible au clavier** — le bouton est atteignable avec `Tab` et déclenchable avec `Entrée` / `Espace`.
+
+## États visuels
+
+| Serveurs | Dossier |
+| --- | --- |
+| ![Exemples de serveurs muets](images/mute_statue_exemple_server.png) | ![Exemples d'états de dossier](images/mute_statue_exemple_groupe.png) |
+
+Une cloche rouge signifie muet, une cloche orange signifie qu'une partie seulement du dossier est muette, et les icônes grisées sont les serveurs muets.
 
 ## Comment ça marche
 
