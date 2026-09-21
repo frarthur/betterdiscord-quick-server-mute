@@ -76,7 +76,7 @@ module.exports = class QuickServerMute {
         if (!this.fluxSubscribed || !this.flux) return;
 
         this.fluxEvents().forEach(ev => {
-            try { this.flux.unsubscribe(ev, this.onFlux); } catch (_) {}
+            try { this.flux.unsubscribe(ev, this.onFlux); } catch (_) { /* ignore: handler may already be removed */ }
         });
         this.fluxSubscribed = false;
     }
@@ -117,6 +117,7 @@ module.exports = class QuickServerMute {
             return !!this.getStore()?.isMuted(guildId);
         }
         catch (_) {
+            // Discord internals can throw while the store is still loading; treat as not muted.
             return false;
         }
     }
@@ -139,6 +140,7 @@ module.exports = class QuickServerMute {
             return folder;
         }
         catch (_) {
+            // Discord internals may return unexpected shapes; skip this folder instead of breaking the scan.
             return null;
         }
     }
@@ -222,6 +224,7 @@ module.exports = class QuickServerMute {
             return BdApi.Webpack.getStore("GuildStore")?.getGuild(guildId)?.name || "Serveur";
         }
         catch (_) {
+            // Guild store may be unavailable during startup; fall back to a generic label.
             return "Serveur";
         }
     }
@@ -238,7 +241,9 @@ module.exports = class QuickServerMute {
     scan() {
         let folderItems = 0;
         document.querySelectorAll('[data-list-item-id^="guildsnav___"]').forEach(item => {
-            const id = (item.getAttribute("data-list-item-id") || "").replace("guildsnav___", "");
+            const rawId = item.dataset.listItemId;
+            if (!rawId) return;
+            const id = rawId.replace("guildsnav___", "");
 
             if (/^\d{15,}$/.test(id)) {
                 this.ensureButton(item, "guild", id);
