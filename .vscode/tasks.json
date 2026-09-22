@@ -1,0 +1,64 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "init: Fichiers standards",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy", "Bypass", "-File", "c:\\dev\\git-template\\init-project.ps1", "-Path", "."
+      ],
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "sonar: Analyse SonarCloud",
+      "type": "shell",
+      "command": "sonar-scanner",
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "sonar: Analyse SonarCloud (Docker)",
+      "type": "shell",
+      "command": "docker",
+      "args": [
+        "run", "--rm",
+        "-v", "${workspaceFolder}:/usr/src",
+        "sonarsource/sonar-scanner-cli"
+      ],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "git: Valider message commit",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "$msg = Read-Host 'Message de commit'; if ($msg -match '^(feat|fix|refactor|style|test|docs|chore|perf|ci|revert)\([^)]*\): [a-z].{0,49}$' -and $msg.Length -le 72) { Write-Host 'OK' -ForegroundColor Green; git commit -m $msg } else { Write-Host 'Format invalide : type(scope): description (50 chars max, minuscule, sans point)' -ForegroundColor Red }"
+      ],
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

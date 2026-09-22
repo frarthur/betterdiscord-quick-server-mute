@@ -1,0 +1,42 @@
+# ─── Private local files ───────────────────────────────────────────
+*.local.md
+
+# Exceptions : modeles du template a conserver dans ce depot
+!/.gitmessage.local.md
+!/roadmap.local.md
+
+# ─── Environment ────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ─── Dependencies ───────────────────────────────────────────────────
+node_modules/
+vendor/
+.pnpm-store/
+
+# ─── Build / Output ─────────────────────────────────────────────────
+dist/
+build/
+out/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# ─── IDE / Editor ───────────────────────────────────────────────────
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ─── OS ─────────────────────────────────────────────────────────────
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# ─── Logs ───────────────────────────────────────────────────────────
+*.log
+logs/

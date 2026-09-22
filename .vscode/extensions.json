@@ -1,0 +1,19 @@
+{
+  "recommendations": [
+    "ms-azuretools.vscode-containers",
+    "ms-vscode-remote.remote-containers",
+    "ms-azuretools.vscode-docker",
+    "EditorConfig.EditorConfig",
+    "mhutchie.git-graph",
+    "github.vscode-github-actions",
+    "GitHub.vscode-pull-request-github",
+    "eamodio.gitlens",
+    "PKief.material-icon-theme",
+    "ms-vscode.powershell",
+    "esbenp.prettier-vscode",
+    "mechatroner.rainbow-csv",
+    "SonarSource.sonarlint-vscode",
+    "tal7aouy.theme",
+    "ratul.git-init-button"
+  ]
+}
